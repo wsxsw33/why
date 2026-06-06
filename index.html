@@ -25,7 +25,6 @@
             width: 100vw;
             height: 100vh;
             position: relative;
-
             background-color: rgba(0, 0, 0, 0.75);
         }
 
@@ -61,7 +60,6 @@
         .why-image {
             width: 220px;
             vertical-align: middle;
-
             position: relative;
             top: -20px;
 
@@ -93,6 +91,20 @@
             white-space: nowrap;
         }
 
+        .awake-question {
+            margin-top: 120px;
+            font-family: "휴먼옛체", "궁서", serif;
+            font-size: 32px;
+            color: #66ff99;
+            letter-spacing: 2px;
+            opacity: 0;
+            transition: opacity 3s ease;
+        }
+
+        .awake-question.show {
+            opacity: 1;
+        }
+
         @keyframes fadeInWhy {
             from {
                 opacity: 0;
@@ -110,17 +122,9 @@
     <div class="page">
 
         <div id="mainTitle" class="intro-text">
-
-            <span class="small-text small-text-left">
-                단 하나의
-            </span>
-
+            <span class="small-text small-text-left">단 하나의</span>
             <img src="images/why.png" alt="왜?" class="why-image">
-
-            <span class="small-text small-text-right">
-                를 위하여...
-            </span>
-
+            <span class="small-text small-text-right">를 위하여...</span>
         </div>
 
         <div id="menuPage" class="menu-page">
@@ -137,35 +141,36 @@
                 마음(心)으로 하나되기
             </div>
 
+            <div id="awakeQuestion" class="awake-question">
+                우리는 과연 깨어날 수 있을까?
+            </div>
+
         </div>
 
     </div>
 
     <script>
-
         window.onload = function () {
-
             const title = document.getElementById("mainTitle");
             const menu = document.getElementById("menuPage");
-
-            // why.png가 완전히 나타난 후
+            const awakeQuestion = document.getElementById("awakeQuestion");
 
             setTimeout(function () {
-
                 title.classList.add("move-up");
 
                 setTimeout(function () {
-
                     menu.classList.add("show");
+
+                    setTimeout(function () {
+                        awakeQuestion.classList.add("show");
+                    }, 2500);
 
                 }, 2000);
 
             }, 2000);
         };
-
     </script>
 
 </body>
 
-</html>    
-<!-- test -->
+</html>
