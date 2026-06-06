@@ -9,15 +9,11 @@
     <style>
         body {
             margin: 0;
-
             background-image: url("images/universe.jpg");
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-
-            color: white;
-            font-family: "맑은 고딕", sans-serif;
             overflow: hidden;
         }
 
@@ -32,48 +28,41 @@
             position: absolute;
             top: 50%;
             left: 50%;
+            width: 760px;
+            max-width: 90vw;
             transform: translate(-50%, -50%);
-            white-space: nowrap;
             text-align: center;
             transition: all 2s ease;
         }
 
         .intro-text.move-up {
-            top: 18%;
+            top: 14%;
             transform: translate(-50%, -50%) scale(0.9);
         }
 
-        .small-text {
-            font-size: 30px;
-            color: white;
+        .title-image {
+            width: 100%;
+            height: auto;
             vertical-align: middle;
-        }
-
-        .small-text-left {
-            margin-right: 80px;
-        }
-
-        .small-text-right {
-            margin-left: 80px;
         }
 
         .why-image {
-            width: 220px;
-            vertical-align: middle;
-            position: relative;
-            top: -20px;
-
+            position: absolute;
+            left: 50%;
+            top: 30%;
+            width: 180px;
+            transform: translate(-50%, -50%);
             opacity: 0;
             animation: fadeInWhy 5s ease-in-out forwards;
         }
 
         .menu-page {
             position: absolute;
-            top: 35%;
+            top: 30%;
             left: 50%;
+            width: 100%;
             transform: translateX(-50%);
             text-align: center;
-
             opacity: 0;
             transition: opacity 2s ease;
         }
@@ -83,26 +72,30 @@
         }
 
         .menu-item {
-            font-family: "휴먼옛체", "궁서", serif;
-            font-size: 42px;
-            color: white;
-            padding: 22px;
-            letter-spacing: 3px;
+            padding: 4px;
             white-space: nowrap;
         }
 
+        .menu-image {
+            width: 660px;
+            max-width: 85vw;
+            height: auto;
+        }
+
         .awake-question {
-            margin-top: 120px;
-            font-family: "휴먼옛체", "궁서", serif;
-            font-size: 32px;
-            color: #66ff99;
-            letter-spacing: 2px;
+            margin-top: 60px;
             opacity: 0;
             transition: opacity 3s ease;
         }
 
         .awake-question.show {
             opacity: 1;
+        }
+
+        .question-image {
+            width: 640px;
+            max-width: 85vw;
+            height: auto;
         }
 
         @keyframes fadeInWhy {
@@ -114,6 +107,45 @@
                 opacity: 1;
             }
         }
+
+        @media (max-width: 768px) {
+            .intro-text {
+                width: 92vw;
+            }
+
+            .intro-text.move-up {
+                top: 14%;
+                transform: translate(-50%, -50%) scale(0.95);
+            }
+
+            .why-image {
+                width: 24vw;
+                max-width: 130px;
+            }
+
+            .menu-page {
+                top: 28%;
+                width: 100%;
+            }
+
+            .menu-item {
+                padding: 4px;
+            }
+
+            .menu-image {
+                width: 92vw;
+                max-width: 660px;
+            }
+
+            .awake-question {
+                margin-top: 40px;
+            }
+
+            .question-image {
+                width: 92vw;
+                max-width: 640px;
+            }
+        }
     </style>
 </head>
 
@@ -122,27 +154,39 @@
     <div class="page">
 
         <div id="mainTitle" class="intro-text">
-            <span class="small-text small-text-left">단 하나의</span>
-            <img src="images/why.png" alt="왜?" class="why-image">
-            <span class="small-text small-text-right">를 위하여...</span>
+            <img src="images/단 하나.png"
+                 alt="단 하나의 를 위하여..."
+                 class="title-image">
+
+            <img src="images/why.png"
+                 alt="왜?"
+                 class="why-image">
         </div>
 
         <div id="menuPage" class="menu-page">
 
             <div class="menu-item">
-                우주해탈(宇宙解脫) 연구소
+                <img src="images/우주해탈(宇宙解脫) 연구소.png"
+                     alt="우주해탈(宇宙解脫) 연구소"
+                     class="menu-image">
             </div>
 
             <div class="menu-item">
-                획분석 한자(劃分析 韓字) 연구소
+                <img src="images/획분석 한자(劃分析 韓字) 연구소.png"
+                     alt="획분석 한자(劃分析 韓字) 연구소"
+                     class="menu-image">
             </div>
 
             <div class="menu-item">
-                마음(心)으로 하나되기
+                <img src="images/마음(心)으로 하나되기.png"
+                     alt="마음(心)으로 하나되기"
+                     class="menu-image">
             </div>
 
             <div id="awakeQuestion" class="awake-question">
-                우리는 과연 깨어날 수 있을까?
+                <img src="images/우리는 과연 깨어날 수 있을까.png"
+                     alt="우리는 과연 깨어날 수 있을까?"
+                     class="question-image">
             </div>
 
         </div>
