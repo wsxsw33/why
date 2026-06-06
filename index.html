@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단 하나의 왜</title>
+
+    <style>
+        body {
+            margin: 0;
+
+            background-image: url("images/universe.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            color: white;
+            font-family: "맑은 고딕", sans-serif;
+            overflow: hidden;
+        }
+
+        .page {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        .intro-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            text-align: center;
+            transition: all 2s ease;
+        }
+
+        .intro-text.move-up {
+            top: 18%;
+            transform: translate(-50%, -50%) scale(0.9);
+        }
+
+        .small-text {
+            font-size: 30px;
+            color: white;
+            vertical-align: middle;
+        }
+
+        .small-text-left {
+            margin-right: 80px;
+        }
+
+        .small-text-right {
+            margin-left: 80px;
+        }
+
+        .why-image {
+            width: 220px;
+            vertical-align: middle;
+
+            position: relative;
+            top: -20px;
+
+            opacity: 0;
+            animation: fadeInWhy 5s ease-in-out forwards;
+        }
+
+        .menu-page {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        .menu-page.show {
+            opacity: 1;
+        }
+
+        .menu-item {
+            font-family: "휴먼옛체", "궁서", serif;
+            font-size: 42px;
+            color: white;
+            padding: 22px;
+            letter-spacing: 3px;
+            white-space: nowrap;
+        }
+
+        @keyframes fadeInWhy {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <div id="mainTitle" class="intro-text">
+
+            <span class="small-text small-text-left">
+                단 하나의
+            </span>
+
+            <img src="images/why.png" alt="왜?" class="why-image">
+
+            <span class="small-text small-text-right">
+                를 위하여...
+            </span>
+
+        </div>
+
+        <div id="menuPage" class="menu-page">
+
+            <div class="menu-item">
+                우주해탈(宇宙解脫) 연구소
+            </div>
+
+            <div class="menu-item">
+                획분석 한자(劃分析 韓字) 연구소
+            </div>
+
+            <div class="menu-item">
+                마음(心)으로 하나되기
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        window.onload = function () {
+
+            const title = document.getElementById("mainTitle");
+            const menu = document.getElementById("menuPage");
+
+            // why.png가 완전히 나타난 후
+
+            setTimeout(function () {
+
+                title.classList.add("move-up");
+
+                setTimeout(function () {
+
+                    menu.classList.add("show");
+
+                }, 2000);
+
+            }, 2000);
+        };
+
+    </script>
+
+</body>
+
+</html>
