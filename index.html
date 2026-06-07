@@ -44,16 +44,12 @@
         .landing {
             width: min(900px, 94vw);
             text-align: center;
-            position: relative;
         }
 
         .title-wrap {
             position: relative;
             width: min(760px, 92vw);
-            margin: 0 auto 7vh auto;
-
-            animation: titleMoveUp 2s ease-in-out forwards;
-            animation-delay: 4.8s;
+            margin: 0 auto 6vh auto;
         }
 
         .title-image {
@@ -71,22 +67,19 @@
 
             opacity: 0;
             animation: fadeInWhy 4s ease-in-out forwards;
-            animation-delay: 0.5s;
         }
 
         .menu-area {
-            margin-top: 3vh;
-
             opacity: 0;
             animation: fadeInMenu 2s ease-in-out forwards;
-            animation-delay: 6.8s;
+            animation-delay: 4.5s;
         }
 
         .menu-link {
             display: block;
             width: fit-content;
             max-width: 94vw;
-            margin: 0 auto 0.4vh auto;
+            margin: 0 auto 1.2vh auto;
 
             text-decoration: none;
             cursor: pointer;
@@ -114,11 +107,11 @@
         }
 
         .question-wrap {
-            margin-top: 8vh;
+            margin-top: 7vh;
 
             opacity: 0;
             animation: fadeInQuestion 3s ease-in-out forwards;
-            animation-delay: 9.2s;
+            animation-delay: 7s;
         }
 
         .question-image {
@@ -136,20 +129,10 @@
             }
         }
 
-        @keyframes titleMoveUp {
-            from {
-                transform: translateY(26vh);
-            }
-
-            to {
-                transform: translateY(0);
-            }
-        }
-
         @keyframes fadeInMenu {
             from {
                 opacity: 0;
-                transform: translateY(16px);
+                transform: translateY(20px);
             }
 
             to {
@@ -181,19 +164,15 @@
 
             .title-wrap {
                 width: 94vw;
-                margin-bottom: 6vh;
+                margin-bottom: 5vh;
             }
 
             .why-image {
                 width: clamp(90px, 24vw, 130px);
             }
 
-            .menu-area {
-                margin-top: 2vh;
-            }
-
             .menu-link {
-                margin-bottom: 0.2vh;
+                margin-bottom: 0.8vh;
             }
 
             .menu-image {
@@ -201,21 +180,11 @@
             }
 
             .question-wrap {
-                margin-top: 6vh;
+                margin-top: 5vh;
             }
 
             .question-image {
                 width: 90vw;
-            }
-
-            @keyframes titleMoveUp {
-                from {
-                    transform: translateY(22vh);
-                }
-
-                to {
-                    transform: translateY(0);
-                }
             }
         }
 
@@ -233,19 +202,15 @@
 
             .title-wrap {
                 width: min(560px, 70vw);
-                margin-bottom: 5vh;
+                margin-bottom: 3vh;
             }
 
             .why-image {
                 width: clamp(80px, 11vw, 120px);
             }
 
-            .menu-area {
-                margin-top: 2vh;
-            }
-
             .menu-link {
-                margin-bottom: 0.1vh;
+                margin-bottom: 0.4vh;
             }
 
             .menu-image {
@@ -253,21 +218,11 @@
             }
 
             .question-wrap {
-                margin-top: 6vh;
+                margin-top: 3vh;
             }
 
             .question-image {
                 width: min(460px, 70vw);
-            }
-
-            @keyframes titleMoveUp {
-                from {
-                    transform: translateY(20vh);
-                }
-
-                to {
-                    transform: translateY(0);
-                }
             }
         }
     </style>
