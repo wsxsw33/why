@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>단 하나의 왜</title>
 
     <style>
@@ -11,107 +14,108 @@
         body {
             margin: 0;
             width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background: black;
+            min-height: 100%;
+            background: #000;
         }
 
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .stage {
-            width: 3200px;
-            height: 1800px;
-            position: relative;
-            overflow: hidden;
-
             background-image: url("images/universe.jpg");
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-
-            transform: scale(var(--scale));
-            transform-origin: center center;
+            background-attachment: fixed;
+            overflow-x: hidden;
         }
 
-        .stage::before {
-            content: "";
-            position: absolute;
-            inset: 0;
+        .page {
+            min-height: 100vh;
+            width: 100%;
+            box-sizing: border-box;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 6vh 5vw;
+
             background-color: rgba(0, 0, 0, 0.75);
         }
 
-        .intro-text {
-            position: absolute;
-            top: 450px;
-            left: 50%;
-            width: 760px;
-            transform: translate(-50%, -50%);
+        .landing {
+            width: min(900px, 94vw);
             text-align: center;
-            transition: all 2s ease;
-            z-index: 2;
         }
 
-        .intro-text.move-up {
-            top: 140px;
-            transform: translate(-50%, -50%) scale(0.9);
+        .title-wrap {
+            position: relative;
+            width: min(760px, 92vw);
+            margin: 0 auto 6vh auto;
         }
 
         .title-image {
             width: 100%;
             height: auto;
+            display: block;
         }
 
         .why-image {
             position: absolute;
             left: 50%;
-            top: 30%;
-            width: 180px;
+            top: 50%;
+            width: clamp(110px, 16vw, 180px);
             transform: translate(-50%, -50%);
+
             opacity: 0;
-            animation: fadeInWhy 5s ease-in-out forwards;
+            animation: fadeInWhy 4s ease-in-out forwards;
         }
 
-        .menu-page {
-            position: absolute;
-            top: 270px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
+        .menu-area {
             opacity: 0;
-            transition: opacity 2s ease;
-            z-index: 2;
+            animation: fadeInMenu 2s ease-in-out forwards;
+            animation-delay: 4.5s;
         }
 
-        .menu-page.show {
-            opacity: 1;
+        .menu-link {
+            display: block;
+            width: fit-content;
+            max-width: 94vw;
+            margin: 0 auto 1.2vh auto;
+
+            text-decoration: none;
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease,
+                opacity 0.3s ease;
         }
 
-        .menu-item {
-            padding: 4px;
-            white-space: nowrap;
+        .menu-link:hover {
+            transform: scale(1.04);
+            filter: drop-shadow(0 0 10px rgba(102, 255, 153, 0.45));
+        }
+
+        .menu-link:active {
+            transform: scale(0.98);
+            opacity: 0.8;
         }
 
         .menu-image {
-            width: 660px;
+            width: min(660px, 86vw);
             height: auto;
+            display: block;
         }
 
-        .awake-question {
-            margin-top: 60px;
+        .question-wrap {
+            margin-top: 7vh;
+
             opacity: 0;
-            transition: opacity 3s ease;
-        }
-
-        .awake-question.show {
-            opacity: 1;
+            animation: fadeInQuestion 3s ease-in-out forwards;
+            animation-delay: 7s;
         }
 
         .question-image {
-            width: 640px;
+            width: min(640px, 86vw);
             height: auto;
         }
 
@@ -124,94 +128,156 @@
                 opacity: 1;
             }
         }
+
+        @keyframes fadeInMenu {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInQuestion {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* 모바일 세로 */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .page {
+                align-items: center;
+                padding: 5vh 4vw;
+            }
+
+            .landing {
+                width: 96vw;
+            }
+
+            .title-wrap {
+                width: 94vw;
+                margin-bottom: 5vh;
+            }
+
+            .why-image {
+                width: clamp(90px, 24vw, 130px);
+            }
+
+            .menu-link {
+                margin-bottom: 0.8vh;
+            }
+
+            .menu-image {
+                width: 92vw;
+            }
+
+            .question-wrap {
+                margin-top: 5vh;
+            }
+
+            .question-image {
+                width: 90vw;
+            }
+        }
+
+        /* 모바일 가로 */
+        @media (max-height: 520px) and (orientation: landscape) {
+            .page {
+                align-items: flex-start;
+                padding: 4vh 4vw;
+                overflow-y: auto;
+            }
+
+            .landing {
+                width: 92vw;
+            }
+
+            .title-wrap {
+                width: min(560px, 70vw);
+                margin-bottom: 3vh;
+            }
+
+            .why-image {
+                width: clamp(80px, 11vw, 120px);
+            }
+
+            .menu-link {
+                margin-bottom: 0.4vh;
+            }
+
+            .menu-image {
+                width: min(470px, 70vw);
+            }
+
+            .question-wrap {
+                margin-top: 3vh;
+            }
+
+            .question-image {
+                width: min(460px, 70vw);
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="stage" id="stage">
+    <main class="page">
 
-        <div id="mainTitle" class="intro-text">
-            <img src="images/단 하나.png"
-                 alt="단 하나의 를 위하여..."
-                 class="title-image">
+        <section class="landing">
 
-            <img src="images/why.png"
-                 alt="왜?"
-                 class="why-image">
-        </div>
+            <div class="title-wrap">
+                <img src="images/단 하나.png"
+                     alt="단 하나의 를 위하여..."
+                     class="title-image">
 
-        <div id="menuPage" class="menu-page">
-
-            <div class="menu-item">
-                <img src="images/우주해탈(宇宙解脫) 연구소.png"
-                     alt="우주해탈(宇宙解脫) 연구소"
-                     class="menu-image">
+                <img src="images/why.png"
+                     alt="왜?"
+                     class="why-image">
             </div>
 
-            <div class="menu-item">
-                <img src="images/획분석 한자(劃分析 韓字) 연구소.png"
-                     alt="획분석 한자(劃分析 韓字) 연구소"
-                     class="menu-image">
-            </div>
+            <nav class="menu-area">
 
-            <div class="menu-item">
-                <img src="images/마음(心)으로 하나되기.png"
-                     alt="마음(心)으로 하나되기"
-                     class="menu-image">
-            </div>
+                <a href="#"
+                   class="menu-link">
+                    <img src="images/우주해탈(宇宙解脫) 연구소.png"
+                         alt="우주해탈(宇宙解脫) 연구소"
+                         class="menu-image">
+                </a>
 
-            <div id="awakeQuestion" class="awake-question">
+                <a href="#"
+                   class="menu-link">
+                    <img src="images/획분석 한자(劃分析 韓字) 연구소.png"
+                         alt="획분석 한자(劃分析 韓字) 연구소"
+                         class="menu-image">
+                </a>
+
+                <a href="#"
+                   class="menu-link">
+                    <img src="images/마음(心)으로 하나되기.png"
+                         alt="마음(心)으로 하나되기"
+                         class="menu-image">
+                </a>
+
+            </nav>
+
+            <div class="question-wrap">
                 <img src="images/우리는 과연 깨어날 수 있을까.png"
                      alt="우리는 과연 깨어날 수 있을까?"
                      class="question-image">
             </div>
 
-        </div>
+        </section>
 
-    </div>
-
-    <script>
-        function resizeStage() {
-            const baseWidth = 1600;
-            const baseHeight = 900;
-
-            const vw = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-            const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-
-            const scale = Math.min(vw / baseWidth, vh / baseHeight);
-
-            document.documentElement.style.setProperty("--scale", scale);
-        }
-
-        window.addEventListener("resize", resizeStage);
-
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener("resize", resizeStage);
-        }
-
-        window.onload = function () {
-            resizeStage();
-
-            const title = document.getElementById("mainTitle");
-            const menu = document.getElementById("menuPage");
-            const awakeQuestion = document.getElementById("awakeQuestion");
-
-            setTimeout(function () {
-                title.classList.add("move-up");
-
-                setTimeout(function () {
-                    menu.classList.add("show");
-
-                    setTimeout(function () {
-                        awakeQuestion.classList.add("show");
-                    }, 2500);
-
-                }, 2000);
-
-            }, 2000);
-        };
-    </script>
+    </main>
 
 </body>
 
